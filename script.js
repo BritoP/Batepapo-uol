@@ -38,6 +38,20 @@ function mostrarMensagens(resposta){
     }
 
 }
+function enviarMensagem(){
+    let elemento = document.querySelector(".inputMensagem");
+    let mensagemNova = elemento.value;
+    console.log(mensagemNova);
+    let mensagemFormatada = {from: nome,
+	to: "Todos",
+	text: mensagemNova,
+	type: "message"
+    };
+    const promessa = axios.post('https://mock-api.driven.com.br/api/vm/uol/messages', mensagemFormatada);
+    promessa.then(processarResposta);
+    promessa.catch(tratarErro2);
+    elemento.value = '';
+}
 
 function checkUsuario(){
     let check = axios.post('https://mock-api.driven.com.br/api/vm/uol/status', usuario);
@@ -62,4 +76,9 @@ function tratarErro(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
     entrarSite();
+}
+function tratarErro2(erro) {
+    console.log("Status code: " + erro.response.status);
+    console.log("Mensagem de erro: " + erro.response.data);
+    //window.location.reload();
 }
