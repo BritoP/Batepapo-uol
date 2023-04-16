@@ -61,7 +61,50 @@ input{
     
     color: #000000;    
 }
-
 .direct{
     margin-left: 169px;
+}
+.main{
+    margin-top: 106px;
+    margin-bottom:106px;
+}
+.mensagem{
+    width: 358px;
+    margin-left: 8px;
+    margin-right: 9px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+       
+}
+.time{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color:#AAAAAA;
+}
+.from{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+.to{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+.texto{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
 }
