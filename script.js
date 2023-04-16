@@ -26,7 +26,7 @@ function mostrarMensagens(resposta){
     for(i = 0;i < mensagens.length;i++){
         let mensagemAtual = mensagens[i];
         elemento.innerHTML+=`
-        <li class="mensagem">
+        <li class="mensagem"data-test="message">
             <span class="time">(${mensagemAtual.time}) </div>
             <span class="from"> ${mensagemAtual.from} </div>
             <span class="texto"> para </div>
@@ -39,7 +39,7 @@ function mostrarMensagens(resposta){
 
 }
 function enviarMensagem(){
-    let elemento = document.querySelector(".inputMensagem");
+    let elemento = document.querySelector("#inputMensagem");
     let mensagemNova = elemento.value;
     console.log(mensagemNova);
     let mensagemFormatada = {from: nome,
@@ -48,7 +48,7 @@ function enviarMensagem(){
 	type: "message"
     };
     const promessa = axios.post('https://mock-api.driven.com.br/api/vm/uol/messages', mensagemFormatada);
-    promessa.then(processarResposta);
+    promessa.then(processarResposta2);
     promessa.catch(tratarErro2);
     elemento.value = '';
 }
@@ -72,6 +72,9 @@ function entrarSite(){
 function processarResposta(resposta) {
 	console.log(resposta.status);
 }
+function processarResposta2(resposta) {
+	console.log(resposta.status);
+}
 function tratarErro(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
@@ -80,5 +83,5 @@ function tratarErro(erro) {
 function tratarErro2(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
-    //window.location.reload();
+    window.location.reload();
 }
