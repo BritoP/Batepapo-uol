@@ -26,13 +26,13 @@ function mostrarMensagens(resposta){
     for(i = 0;i < mensagens.length;i++){
         let mensagemAtual = mensagens[i];
         elemento.innerHTML+=`
-        <div class="mensagem">
-            <div class="time">(${mensagemAtual.time}) </div>
-            <div class="from"> ${mensagemAtual.from} </div>
-            <div class="texto"> para </div>
-            <div class="to"> ${mensagemAtual.to} </div>
-            <div class="texto"> ${mensagemAtual.text} </div>
-        </div>
+        <li class="mensagem">
+            <span class="time">(${mensagemAtual.time}) </div>
+            <span class="from"> ${mensagemAtual.from} </div>
+            <span class="texto"> para </div>
+            <span class="to"> ${mensagemAtual.to}: </div>
+            <span class="texto"> ${mensagemAtual.text} </div>
+        </li>
         `
         console.log("percorrido");
     }

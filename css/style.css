@@ -69,15 +69,16 @@ input{
     margin-bottom:106px;
 }
 .mensagem{
-    width: 358px;
-    margin-left: 8px;
-    margin-right: 9px;
+    min-height: 43px;
+    width: 375px;
+    padding-left: 8px;
+    padding-right: 9px;
     margin-bottom: 4px;
     display: flex;
     align-items: center;
     border-radius: 2px;
     background-color: #FFFFFF;
-       
+    overflow-wrap: break-word;   
 }
 .time{
     font-family: 'Roboto';
@@ -90,14 +91,15 @@ input{
 .from{
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
     line-height: 16px;
+    color:black;
 }
 .to{
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
     line-height: 16px;
 }
