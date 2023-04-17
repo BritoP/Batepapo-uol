@@ -73,7 +73,6 @@ function entrarSite(){
     let promessa = axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', usuario);
     promessa.then(processarResposta);
     promessa.catch(tratarErro);
-
 }
 function processarResposta(resposta) {
 	console.log(resposta.status);
@@ -101,5 +100,5 @@ function tratarErro2(erro) {
 function tratarErro3(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
-    window.location.reload()
+    window.location.reload();
 }
