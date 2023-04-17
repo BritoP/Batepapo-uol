@@ -8,8 +8,8 @@ entrarSite();
 
 function entrarSala(){
     if(online === 1){
-    procurarMensagens();
     checkUsuario();
+    procurarMensagens();
     }
     else{
         entrarSite();
@@ -62,7 +62,6 @@ function checkUsuario(){
     check.then(processarResposta2);
     check.catch(tratarErro3);
     setTimeout(checkUsuario, 5000);
-    
 }
   
 function entrarSite(){
@@ -76,12 +75,12 @@ function entrarSite(){
 }
 function processarResposta(resposta) {
 	console.log(resposta.status);
-    online = 1;
     entrarSala();
 
 }
 function processarResposta2(resposta) {
 	console.log(resposta.status);
+    online = 1;
 }
 function processarResposta3(resposta) {
 	console.log(resposta.status);
@@ -100,5 +99,6 @@ function tratarErro2(erro) {
 function tratarErro3(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
+    online = 0;
     window.location.reload();
 }
