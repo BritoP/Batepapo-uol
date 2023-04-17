@@ -2,13 +2,18 @@ axios.defaults.headers.common['Authorization'] = 'pJY2W50kPz7cAJaR8fghfVSj';
 let nome = "";
 let usuario = {};
 let mensagens = [];
-
+let online = 0;
 entrarSite();
 
 
 function entrarSala(){
+    if(online === 1){
     procurarMensagens();
     checkUsuario();
+    }
+    else{
+        entrarSite();
+    }
 }
 
 function procurarMensagens(){
@@ -46,8 +51,8 @@ function enviarMensagem(){
 	text: mensagemNova,
 	type: "message"
     };
-    const promessa = axios.post('https://mock-api.driven.com.br/api/vm/uol/messages', mensagemFormatada);
-    promessa.then(processarResposta2);
+    let promessa = axios.post('https://mock-api.driven.com.br/api/vm/uol/messages', mensagemFormatada);
+    promessa.then(processarResposta3);
     promessa.catch(tratarErro2);
     elemento.value = '';
 }
@@ -70,11 +75,16 @@ function entrarSite(){
 }
 function processarResposta(resposta) {
 	console.log(resposta.status);
+    online = 1;
     entrarSala();
 
 }
 function processarResposta2(resposta) {
 	console.log(resposta.status);
+}
+function processarResposta3(resposta) {
+	console.log(resposta.status);
+    procurarMensagens();
 }
 function tratarErro(erro) {
     console.log("Status code: " + erro.response.status);
