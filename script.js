@@ -10,6 +10,7 @@ function entrarSala(){
     checkUsuario();
     if(online === 1){
     procurarMensagens();
+    entrarSala();
     }
     else{
         entrarSite();
@@ -75,7 +76,6 @@ function entrarSite(){
 }
 function processarResposta(resposta) {
 	console.log(resposta.status);
-    entrarSala();
 
 }
 function processarResposta2(resposta) {
