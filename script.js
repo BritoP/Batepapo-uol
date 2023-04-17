@@ -4,7 +4,6 @@ let usuario = {};
 let mensagens = [];
 
 entrarSite();
-entrarSala();
 
 
 function entrarSala(){
@@ -55,7 +54,7 @@ function enviarMensagem(){
 
 function checkUsuario(){
     let check = axios.post('https://mock-api.driven.com.br/api/vm/uol/status', usuario);
-    check.then(processarResposta);
+    check.then(processarResposta2);
     setTimeout(checkUsuario, 5000);
 }
   
@@ -71,6 +70,8 @@ function entrarSite(){
 }
 function processarResposta(resposta) {
 	console.log(resposta.status);
+    entrarSala();
+
 }
 function processarResposta2(resposta) {
 	console.log(resposta.status);
