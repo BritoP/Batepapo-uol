@@ -4,30 +4,24 @@ let usuario = {};
 let mensagens = [];
 let online = 0;
 entrarSite();
-
-
 function entrarSala(){
-    checkUsuario();
     if(online === 1){
     procurarMensagens();
-    entrarSala();
+    checkUsuario();
     }
     else{
         entrarSite();
     }
 }
-
 function procurarMensagens(){
     let mensagens = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages");
     mensagens.then(mostrarMensagens);
     setTimeout(procurarMensagens,3000);
 }
-
 function mostrarMensagens(resposta){
     mensagens = resposta.data;
     let elemento = document.querySelector(".main");
     elemento.innerHTML = '';
-
     for(i = 0;i < mensagens.length;i++){
         let mensagemAtual = mensagens[i];
         elemento.innerHTML+=`
@@ -41,7 +35,6 @@ function mostrarMensagens(resposta){
         `
         console.log("percorrido");
     }
-
 }
 function enviarMensagem(){
     let elemento = document.querySelector("#inputMensagem");
@@ -57,12 +50,12 @@ function enviarMensagem(){
     promessa.catch(tratarErro2);
     elemento.value = '';
 }
-
 function checkUsuario(){
     let check = axios.post('https://mock-api.driven.com.br/api/vm/uol/status', usuario);
     check.then(processarResposta2);
     check.catch(tratarErro3);
     setTimeout(checkUsuario, 5000);
+    
 }
   
 function entrarSite(){
@@ -73,14 +66,15 @@ function entrarSite(){
     let promessa = axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', usuario);
     promessa.then(processarResposta);
     promessa.catch(tratarErro);
+
 }
 function processarResposta(resposta) {
 	console.log(resposta.status);
-
+    online = 1;
+    entrarSala();
 }
 function processarResposta2(resposta) {
 	console.log(resposta.status);
-    online = 1;
 }
 function processarResposta3(resposta) {
 	console.log(resposta.status);
@@ -99,6 +93,5 @@ function tratarErro2(erro) {
 function tratarErro3(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
-    online = 0;
     window.location.reload();
 }
