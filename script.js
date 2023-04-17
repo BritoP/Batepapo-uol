@@ -60,7 +60,9 @@ function enviarMensagem(){
 function checkUsuario(){
     let check = axios.post('https://mock-api.driven.com.br/api/vm/uol/status', usuario);
     check.then(processarResposta2);
+    check.catch(tratarErro3);
     setTimeout(checkUsuario, 5000);
+    
 }
   
 function entrarSite(){
@@ -94,5 +96,10 @@ function tratarErro(erro) {
 function tratarErro2(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
-    location.reload();
+    checkUsuario();
+}
+function tratarErro3(erro) {
+    console.log("Status code: " + erro.response.status);
+    console.log("Mensagem de erro: " + erro.response.data);
+    window.location.reload()
 }
