@@ -94,5 +94,5 @@ function tratarErro(erro) {
 function tratarErro2(erro) {
     console.log("Status code: " + erro.response.status);
     console.log("Mensagem de erro: " + erro.response.data);
-    window.location.reload();
+    location.reload();
 }
