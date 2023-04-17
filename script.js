@@ -7,8 +7,8 @@ entrarSite();
 
 
 function entrarSala(){
-    if(online === 1){
     checkUsuario();
+    if(online === 1){
     procurarMensagens();
     }
     else{
